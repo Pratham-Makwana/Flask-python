@@ -1,0 +1,16 @@
+from flask import *  
+app = Flask(__name__)  
+  
+@app.route('/login',methods = ['POST'])  
+def login():  
+      uname=request.form['uname']  
+      passwrd=request.form['pass']  
+      if uname=="ayush" and passwrd=="google":  
+          return "Welcome %s" %uname 
+
+@app.route('/table/<int:num>')
+def table(num):
+    return render_template('print.html',n=num)
+
+if __name__ == '__main__':  
+   app.run(debug = True) 
